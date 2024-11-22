@@ -1,0 +1,6 @@
+flasgger
+build
+twine
+pytest
+sphinx
+Pallets-Sphinx-Themes

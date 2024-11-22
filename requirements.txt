@@ -1,0 +1,2 @@
+notion-database==2.0.dev0
+flask==3.1.0
