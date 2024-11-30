@@ -29,6 +29,12 @@ NDE.init_app(app)
 
 Now, you can use the notion-database features in your Flask routes.
 
+## Example
+
+run the example.py file to see how the extension works.
+
+http://127.0.0.1:8888/apidocs/#/ will show the swagger documentation of the api.
+
 ## License
 
 This project is licensed under the terms of the LGPL license.
