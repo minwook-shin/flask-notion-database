@@ -1,13 +1,10 @@
-import json
-
+from flask_notion_database.routes.database import DatabaseRoutes
 from flasgger import swag_from
-from flask import request, jsonify
-from notion_database import NotionDatabase
-from notion_database.const.query import Direction, Timestamp
 
 
 def define_routes(app):
-    @app.route('/notion-db/search', methods=['POST'])
+    db_routes = DatabaseRoutes()
+    @app.route('/notion/database/search', methods=['POST'])
     @swag_from({
         'responses': {200: {}},
         'parameters': [
@@ -25,14 +22,8 @@ def define_routes(app):
             }
         ]
     })
-    def search_db():
-        integrations_token = request.form.get('integrations_token')
-        query = request.form.get('query', "")
-        # sort = request.form.get('sort')
-        sort = {"direction": Direction.ascending, "timestamp": Timestamp.last_edited_time}
-
-        result = NotionDatabase.search_database(integrations_token, sort, query)
-        return jsonify(result)
+    def search():
+        return db_routes.search()
 
 
 class NotionDatabaseExtension:
