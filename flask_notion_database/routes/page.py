@@ -18,3 +18,9 @@ class PageRoutes:
         result = NotionDatabase.search_pages(integrations_token=integrations_token, query=query, sort=sort,
                                              page_size=page_size, start_cursor=start_cursor)
         return jsonify(result)
+
+    def retrieve(self):
+        integrations_token = request.form.get('integrations_token')
+        page_id = request.form.get('page_id')
+        result = NotionDatabase.retrieve_page(integrations_token=integrations_token, page_id=page_id)
+        return jsonify(result)
